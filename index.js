@@ -1,7 +1,7 @@
 let store = { customers: [], meals: [], deliveries: [], employers: [] };
 
 
-// CUSTOMER CLASS BELOW 
+// CUSTOMER CLASS BELOW
 let customerId = 0; // begins at zero
 class Customer { //defines a class of customer
   constructor(name, employer = {}) {//input arguments here
@@ -33,8 +33,8 @@ totalSpent(){
 //MEAL CLASS BELOW
 let mealId = 0;  // begins at zero
 class Meal { //defines a class of meal
-  constructor(name, price) {
-  this.name = name;
+  constructor(title, price) {
+  this.title = title;
   this.price = price;
   this.id = ++mealId; //counts adding one each new id number
   store.meals.push(this); //pushes this info to store array
@@ -51,5 +51,5 @@ class Deliveries { //defines a class of meal
     this.id = ++deliveryId; //counts adding one each new id number
     store.deliveries.push(this); //pushes this info to store array
   }
-  
+
 }
