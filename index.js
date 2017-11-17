@@ -40,3 +40,16 @@ class Meal { //defines a class of meal
   store.meals.push(this); //pushes this info to store array
 }
 }
+
+
+// DELIVERIES CLASS BELOW
+let deliveryId = 0;  // begins at zero
+class Deliveries { //defines a class of meal
+  constructor() {
+    this.;
+    this.;
+    this.id = ++deliveryId; //counts adding one each new id number
+    store.deliveries.push(this); //pushes this info to store array
+  }
+  
+}
