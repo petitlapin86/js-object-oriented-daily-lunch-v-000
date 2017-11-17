@@ -41,7 +41,6 @@ class Meal { //defines a class of meal
 }
 }
 
-
 // DELIVERIES CLASS BELOW
 let deliveryId = 0;  // begins at zero
 class Delivery { //defines a class of meal
@@ -51,5 +50,14 @@ class Delivery { //defines a class of meal
     this.id = ++deliveryId; //counts adding one each new id number
     store.deliveries.push(this); //pushes this info to store array
   }
+} //closes DELIVERY class
 
+// EMPLOYER CLASS BELOW
+let employerId = 0;  // begins at zero
+class Employer { //defines a class of meal
+  constructor() {
+    this.id = ++employerId; //counts adding one each new id number
+    store.employers.push(this); //pushes this info to store array
+  }
+  
 }
