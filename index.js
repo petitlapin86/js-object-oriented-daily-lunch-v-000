@@ -1,13 +1,13 @@
 let store = { deliveries: [], employers: [], customers: [], meals: [] };
 
-let mealId = 0;
+let mealId = 0; // telling count to start at zero 
 
-class Meal {
-  constructor(title, price) {
+class Meal { // define class of meal 
+  constructor(title, price) { // takes two arguments 
     this.title = title;
     this.price = price;
-    this.id = ++mealId;
-    store.meals.push(this);
+    this.id = ++mealId; // telling to add one to counter for each new meal
+    store.meals.push(this); // pushes this info to the store array 
   }
   deliveries() {
     return store.deliveries.filter(delivery => {
