@@ -46,8 +46,8 @@ class Meal { //defines a class of meal
 let deliveryId = 0;  // begins at zero
 class Delivery { //defines a class of meal
   constructor(meal, customer) {
-    this.meal = mealId;
-    this.customer = customerId;
+    this.meal = mealId; // returns object with attributes of mealId
+    this.customer = customerId; // returns object with attributes of customerId
     this.id = ++deliveryId; //counts adding one each new id number
     store.deliveries.push(this); //pushes this info to store array
   }
