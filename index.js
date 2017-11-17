@@ -44,7 +44,7 @@ class Meal { //defines a class of meal
 
 // DELIVERIES CLASS BELOW
 let deliveryId = 0;  // begins at zero
-class Deliveries { //defines a class of meal
+class Delivery { //defines a class of meal
   constructor(meal, customer) {
     this.meal = mealId;
     this.customer = customerId;
