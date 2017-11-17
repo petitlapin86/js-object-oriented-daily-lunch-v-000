@@ -1,89 +1,83 @@
-let store = { customers: [], meals: [], deliveries: [], employers: [] };
+let store = { deliveries: [], employers: [], customers: [], meals: [] };
 
+let mealId = 0;
 
-// CUSTOMER CLASS BELOW
-let customerId = 0; // begins at zero
-class Customer { //defines a class of customer
-  constructor(name, employer = {}) {//input arguments here
-    this.name = name;
-    this.employerId = employer.id;
-    this.id = ++customerId; //counts adding one each new id number
-    store.customers.push(this); //pushes this info to store array
-  }
-
-meals(){ //returns all meals customer had delivered
-    return this.deliveries().map(delivery => {
-      return delivery.meal();
-    });
+class Meal {
+  constructor(title, price) {
+    this.title = title;
+    this.price = price;
+    this.id = ++mealId;
+    store.meals.push(this);
   }
   deliveries() {
-  return store.deliveries.filter(delivery => {
-    return delivery.customerId == this.id;
-  });
-}
-
-totalSpent(){
-    return this.meals().reduce(function(sum, meal) {
-      return sum + meal.price;
-    }, 0);
-  } //returns total amount spent as a function of the cost of meals delivered
-} // closes CUSTOMER CLASS
-
-//MEAL CLASS BELOW
-let mealId = 0;  // begins at zero
-class Meal { //defines a class of meal
-  constructor(title, price) {
-  this.title = title;
-  this.price = price;
-  this.id = ++mealId; //counts adding one each new id number
-  store.meals.push(this); //pushes this info to store array
-}
-
-deliveries() { //returns all deliveries a customer has had
     return store.deliveries.filter(delivery => {
       return delivery.mealId == this.id;
     });
-}
-customers() {
+  }
+  customers() {
     return this.deliveries().map(delivery => {
       return delivery.customer();
     });
   }
   static byPrice() {
-   return store.meals.sort((meal1, meal2) => {
-     return meal1.price < meal2.price;
-   });
- }
+    return store.meals.sort((meal1, meal2) => {
+      return meal1.price < meal2.price;
+    });
+  }
 }
 
-// DELIVERIES CLASS BELOW
-let deliveryId = 0;  // begins at zero
-class Delivery { //defines a class of meal
-  constructor(meal, customer) {
-    this.meal = mealId; // returns object with attributes of mealId
-    this.customer = customerId; // returns object with attributes of customerId
-    this.id = ++deliveryId; //counts adding one each new id number
-    store.deliveries.push(this); //pushes this info to store array
+let customerId = 0;
+class Customer {
+  constructor(name, employer = {}) {
+    this.name = name;
+    this.employerId = employer.id;
+    this.id = ++customerId;
+    store.customers.push(this);
+  }
+  totalSpent() {
+    return this.meals().reduce(function(sum, meal) {
+      return sum + meal.price;
+    }, 0);
+  }
+  deliveries() {
+    return store.deliveries.filter(delivery => {
+      return delivery.customerId == this.id;
+    });
+  }
+  meals() {
+    return this.deliveries().map(delivery => {
+      return delivery.meal();
+    });
+  }
+}
+
+let deliveryId = 0;
+class Delivery {
+  constructor(meal = {}, customer = {}) {
+    this.mealId = meal.id;
+    this.customerId = customer.id;
+    this.id = ++deliveryId;
+    store.deliveries.push(this);
   }
   meal() {
-   return store.meals.find(meal => {
-     return meal.id === this.mealId;
-   });
- }
- customer() {
-   return store.customers.find(customer => {
-     return customer.id === this.customerId;
-   });
- }
-} //closes DELIVERY class
+    return store.meals.find(meal => {
+      return meal.id === this.mealId;
+    });
+  }
+  customer() {
+    return store.customers.find(customer => {
+      return customer.id === this.customerId;
+    });
+  }
+}
 
-// EMPLOYER CLASS BELOW
-let employerId = 0;  // begins at zero
-class Employer { //defines a class of meal
+let employerId = 0;
+
+class Employer {
   constructor(name) {
     this.name = name;
-    this.id = ++employerId; //counts adding one each new id number
-    store.employers.push(this); //pushes this info to store array
+    this.id = ++employerId;
+    store.employers.push(this);
   }
   mealTotals() {
     let allMeals = this.deliveries().map(delivery => {
