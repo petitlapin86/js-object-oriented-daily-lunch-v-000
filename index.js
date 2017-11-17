@@ -41,6 +41,7 @@ deliveries() { //returns all deliveries a customer has had
       return delivery.mealId == this.id;
     });
 }
+}
 
 // DELIVERIES CLASS BELOW
 let deliveryId = 0;  // begins at zero
