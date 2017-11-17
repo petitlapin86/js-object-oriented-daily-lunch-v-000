@@ -1,4 +1,4 @@
-let store = { customers: [], meals: [], drivers: [], employers: [] };
+let store = { customers: [], meals: [], deliveries: [], employers: [] };
 
 let customerId = 0; // begins at zero
 class Customer { //defines a class of customer
