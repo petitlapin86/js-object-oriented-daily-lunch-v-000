@@ -15,13 +15,19 @@ meals(){ //returns all meals customer had delivered
     });
   }
 
-deliveries() //returns all deliveries a customer has had
+
+deliveries() { //returns all deliveries a customer has had
+    return store.deliveries.filter(delivery => {
+      return delivery.mealId == this.id;
+    });
+  }
+  
 totalSpent(){
     return this.meals().reduce(function(sum, meal) {
       return sum + meal.price;
     }, 0);
   } //returns total amount spent as a function of the cost of meals delivered
-}
+} // closes CUSTOMER CLASS
 
 let mealId = 0;  // begins at zero
 class Meal { //defines a class of meal
