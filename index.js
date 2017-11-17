@@ -17,10 +17,6 @@ meals(){ //returns all meals customer had delivered
     });
   }
 
-deliveries() { //returns all deliveries a customer has had
-    return store.deliveries.filter(delivery => {
-      return delivery.mealId == this.id;
-    });
   }
 
 totalSpent(){
@@ -39,6 +35,11 @@ class Meal { //defines a class of meal
   this.id = ++mealId; //counts adding one each new id number
   store.meals.push(this); //pushes this info to store array
 }
+
+deliveries() { //returns all deliveries a customer has had
+    return store.deliveries.filter(delivery => {
+      return delivery.mealId == this.id;
+    });
 }
 
 // DELIVERIES CLASS BELOW
