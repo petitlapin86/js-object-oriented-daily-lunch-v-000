@@ -16,6 +16,11 @@ meals(){ //returns all meals customer had delivered
       return delivery.meal();
     });
   }
+  deliveries() {
+  return store.deliveries.filter(delivery => {
+    return delivery.customerId == this.id;
+  });
+}
 
 totalSpent(){
     return this.meals().reduce(function(sum, meal) {
