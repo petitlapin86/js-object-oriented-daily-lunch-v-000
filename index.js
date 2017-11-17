@@ -1,5 +1,7 @@
 let store = { customers: [], meals: [], deliveries: [], employers: [] };
 
+
+// CUSTOMER CLASS BELOW 
 let customerId = 0; // begins at zero
 class Customer { //defines a class of customer
   constructor(name, employer = {}) {//input arguments here
@@ -15,13 +17,12 @@ meals(){ //returns all meals customer had delivered
     });
   }
 
-
 deliveries() { //returns all deliveries a customer has had
     return store.deliveries.filter(delivery => {
       return delivery.mealId == this.id;
     });
   }
-  
+
 totalSpent(){
     return this.meals().reduce(function(sum, meal) {
       return sum + meal.price;
@@ -29,6 +30,7 @@ totalSpent(){
   } //returns total amount spent as a function of the cost of meals delivered
 } // closes CUSTOMER CLASS
 
+//MEAL CLASS BELOW
 let mealId = 0;  // begins at zero
 class Meal { //defines a class of meal
   constructor(name, price) {
