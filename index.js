@@ -65,6 +65,16 @@ class Delivery { //defines a class of meal
     this.id = ++deliveryId; //counts adding one each new id number
     store.deliveries.push(this); //pushes this info to store array
   }
+  meal() {
+   return store.meals.find(meal => {
+     return meal.id === this.mealId;
+   });
+ }
+ customer() {
+   return store.customers.find(customer => {
+     return customer.id === this.customerId;
+   });
+ }
 } //closes DELIVERY class
 
 // EMPLOYER CLASS BELOW
