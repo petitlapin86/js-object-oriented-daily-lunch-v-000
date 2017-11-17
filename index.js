@@ -17,8 +17,6 @@ meals(){ //returns all meals customer had delivered
     });
   }
 
-  }
-
 totalSpent(){
     return this.meals().reduce(function(sum, meal) {
       return sum + meal.price;
