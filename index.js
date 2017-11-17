@@ -16,6 +16,10 @@ meals(){ //returns all meals customer had delivered
   }
   
 deliveries() //returns all deliveries a customer has had
-totalSpent() //returns total amount spent as a function of the cost of meals delivered
+totalSpent(){
+    return this.meals().reduce(function(sum, meal) {
+      return sum + meal.price;
+    }, 0);
+  } //returns total amount spent as a function of the cost of meals delivered
 
 }
