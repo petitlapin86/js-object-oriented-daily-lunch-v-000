@@ -45,9 +45,9 @@ class Meal { //defines a class of meal
 // DELIVERIES CLASS BELOW
 let deliveryId = 0;  // begins at zero
 class Deliveries { //defines a class of meal
-  constructor() {
-    this.;
-    this.;
+  constructor(meal, customer) {
+    this.meal = mealId;
+    this.customer = customerId;
     this.id = ++deliveryId; //counts adding one each new id number
     store.deliveries.push(this); //pushes this info to store array
   }
