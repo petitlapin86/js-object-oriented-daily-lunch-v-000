@@ -1,6 +1,6 @@
 let store = {customers: [], meals: [], drivers: [], employers: []}
 
-let customerId = 0 // begins at zero
+let customerId = 0; // begins at zero
 class Customer { //defines a class of customer
   constructor(name, employer = {}) {//input arguments here
     this.name = name;
@@ -23,7 +23,7 @@ totalSpent(){
   } //returns total amount spent as a function of the cost of meals delivered
 }
 
-let mealId = 0  // begins at zero
+let mealId = 0;  // begins at zero
 class Meal { //defines a class of meal
   constructor(name, price) {
   this.name = name;
